@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="regression_mode" default="false"/>
+    <param name="regression_mode" value="$(arg regression_mode)" />
+
+    <node pkg="log_replay" name="tof_merger" type="tof_merger" required="true" output="screen" >
+         <rosparam file="$(find log_replay)/../config/tof_merger.yaml" command="load"/>
+    </node>
+
+    <node unless="$(arg regression_mode)" pkg="rviz" type="rviz" name="rviz" args="-d $(find log_replay)/rviz/tof_merger.rviz"/>
+
+    <arg name="keyboard" default="true"/>
+    <group unless="$(arg regression_mode)">
+        <group if="$(arg keyboard)">
+            <node pkg="log_replay" name="keyboard_publisher" type="keyboard_client.py" output="screen"/>
+        </group>
+    </group>
+</launch>

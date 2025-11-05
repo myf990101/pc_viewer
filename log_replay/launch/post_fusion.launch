@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="log_replay" name="post_fusion" type="post_fusion" required="true" output="screen">
+         <rosparam file="$(find log_replay)/../config/post_fusion.yaml" command="load"/>
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find log_replay)/rviz/post_fusion.rviz"/>
+
+    <node pkg="log_replay" name="keyboard_publisher" type="keyboard_client.py" output="screen"/>
+</launch>

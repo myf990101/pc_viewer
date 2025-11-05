@@ -1,0 +1,9 @@
+<launch>
+     <node pkg="log_replay" name="replay" type="replay" required="true" output="screen">
+         <rosparam file="$(find log_replay)/../config/replay.yaml" command="load"/>
+    </node>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find log_replay)/rviz/log_replay.rviz"/>
+
+    <node pkg="log_replay" name="keyboard_publisher" type="keyboard_client.py" output="screen"/>
+</launch>

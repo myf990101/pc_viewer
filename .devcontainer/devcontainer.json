@@ -1,0 +1,20 @@
+{
+    "name": "ROS Noetic Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "workspaceFolder": "/root/ws",
+    "runArgs": [
+        "--network", "host",
+        "--privileged"
+    ],
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-vscode.cpptools",
+        "ms-iot.vscode-ros"
+    ],
+    "postCreateCommand": "source /opt/ros/noetic/setup.bash"
+}

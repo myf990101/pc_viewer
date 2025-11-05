@@ -1,0 +1,3 @@
+[submodule "log_parser"]
+	path = log_parser
+	url = ssh://git@gitlab5.roborock.com:10022/RockRobo/logparser.git

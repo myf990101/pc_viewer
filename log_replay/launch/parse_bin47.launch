@@ -1,0 +1,5 @@
+<launch>
+     <node pkg="bin47_converter" name="bin47_converter" type="bin47_converter.py" output="screen">
+         <rosparam file="$(find log_replay)/../config/replay.yaml" command="load"/>
+    </node>
+</launch>
