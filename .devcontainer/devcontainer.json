@@ -4,7 +4,10 @@
         "dockerfile": "Dockerfile",
         "context": ".."
     },
-    "workspaceFolder": "/root/ws",
+    "mounts": [
+    "source=/home/roborock/下载/tof_tools,target=/root/tof_tools,type=bind"
+    ],
+    "workspaceFolder": "/root/tof_tools",
     "runArgs": [
         "--network", "host",
         "--privileged"
@@ -16,5 +19,5 @@
         "ms-vscode.cpptools",
         "ms-iot.vscode-ros"
     ],
-    "postCreateCommand": "source /opt/ros/noetic/setup.bash"
+    // "postCreateCommand": "./opt/ros/noetic/setup.bash"
 }
